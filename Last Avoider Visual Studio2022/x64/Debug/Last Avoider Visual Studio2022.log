@@ -1,0 +1,3 @@
+﻿  Last Avoider Visual Studio2022.cpp
+Last Avoider1.obj : error LNK2005: WinMain は既に Last Avoider Visual Studio2022.obj で定義されています。
+D:\MyClass\2026\Personal production\Last Avoider Visual Studio2022\x64\Debug\Last Avoider Visual Studio2022.exe : fatal error LNK1169: 1 つ以上の複数回定義されているシンボルが見つかりました。
