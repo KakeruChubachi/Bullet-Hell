@@ -1,8 +1,8 @@
 #include "Player.h"
 
 static constexpr float MOVE_SPEED = 5.0f;
-static constexpr float PLAYER_VERTICAL_CENTER_SIZE = 112 / 2;
-static constexpr float PLAYER_SIDEWAYS_CENTER_SIZE = 75 / 2;
+static constexpr float PLAYER_SIDEWAYS_CENTER_SIZE = 112 / 2;
+static constexpr float PLAYER_VERTICAL_CENTER_SIZE = 75 / 2;
 
 
 Player::Player()
@@ -10,7 +10,7 @@ Player::Player()
 	hImage = LoadGraph("data/Image/material/PNG/playerShip2_red.png");
 	x = 300;
 	y = 500;
-	hp = 3;
+	hp = 10;
 	isActive = true;
 }
 
@@ -19,7 +19,7 @@ Player::Player(float sx, float sy ,bool isActive)
 	hImage = LoadGraph("data/Image/material/PNG/playerShip2_red.png");
 	x = sx;
 	y = sy;
-	hp = 3;
+	hp = 10;
 	isActive = isActive;
 }
 
@@ -46,10 +46,13 @@ void Player::Draw()
 	DrawGraph((int)x, (int)y, hImage, TRUE);
 }
 
-bool Player::IsHit()
+bool Player::IsHit(float bx,float by,float rad)
 {
-	float distance = PLAYER_SIDEWAYS_CENTER_SIZE;
-	if (distance < 0)
+	float dx = bx - (x + PLAYER_SIDEWAYS_CENTER_SIZE);
+	float dy = by - (y + PLAYER_VERTICAL_CENTER_SIZE);
+	float distance = dx * dx + dy * dy;
+	float radsum = PLAYER_VERTICAL_CENTER_SIZE + rad;
+	if (distance < radsum * radsum)
 	{
 		TakeDamage();
 		return true;

@@ -9,9 +9,11 @@ public:
 	~Player();
 	void Update()override;
 	void Draw() override;
+	float GetX() { return x; }
+	float GetY() { return y; }
 	bool IsActive() const { return isActive; }
 	//”í’e‹@”\
-	bool IsHit();
+	bool IsHit(float bx,float by,float rad);
 	void TakeDamage();
 private:
 	float x, y;

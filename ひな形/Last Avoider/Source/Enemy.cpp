@@ -22,4 +22,5 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
+	DrawGraph((int)x, (int)y, hImage, TRUE);
 }
