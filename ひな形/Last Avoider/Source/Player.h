@@ -1,6 +1,6 @@
 #pragma once
 #include"../Library/GameObject.h"
-class Player : GameObject
+class Player : public GameObject
 {
 public:
 	//Šî–{‹@”\

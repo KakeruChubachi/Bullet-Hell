@@ -18,6 +18,7 @@ void PlayScene::Update()
 		SceneManager::ChangeScene("TITLE");
 	}
 	player.Update();
+	enemy.Update();
 }
 
 void PlayScene::Draw()

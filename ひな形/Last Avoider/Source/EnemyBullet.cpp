@@ -15,6 +15,7 @@ EnemyBullet::EnemyBullet()
 
 EnemyBullet::EnemyBullet(float sx, float sy, float vx, float vy, float bulletSize)
 {
+	hImage = LoadGraph("data/Image/material/PNG/Lasers/laserBlue12.png");
 	x = sx;
 	y = sy;
 	velocityX = vx;
@@ -34,10 +35,11 @@ void EnemyBullet::Update()
 	x += velocityX;
 	y += velocityY;
 	float bulletCenterX, bulletCenterY;
-	bulletCenterX = x + 13 / 2;
-	bulletCenterY = y + 57 / 2;
+	bulletCenterX = x + 13.0 / 2.0;
+	bulletCenterY = y + 57.0 / 2.0;
 
 	Player* p = FindGameObject<Player>();
+	if (p == nullptr) return;   // © ’Ç‰ÁFPlayer‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢
 	float BulletRadius = 13 / 2.0f;
 
 	if (p->IsHit(bulletCenterX, bulletCenterY, BulletRadius))

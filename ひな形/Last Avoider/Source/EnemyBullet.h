@@ -1,7 +1,7 @@
 #pragma once
 #include"../Library/GameObject.h"
 
-class EnemyBullet : GameObject
+class EnemyBullet : public GameObject
 {
 public:
 	EnemyBullet();
@@ -16,6 +16,6 @@ private:
 	float velocityX;
 	float velocityY;
 	float size;
-	bool isActive;
+	bool isActive = true;
 };
 
