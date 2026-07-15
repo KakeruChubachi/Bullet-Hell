@@ -1,4 +1,6 @@
 #include "Player.h"
+#include"PlayerBullet.h"
+#include"GameOverScene.h"
 
 static constexpr float MOVE_SPEED = 5.0f;
 static constexpr float PLAYER_SIDEWAYS_CENTER_SIZE = 112 / 2;
@@ -12,15 +14,17 @@ Player::Player()
 	y = 500;
 	hp = 10;
 	isActive = true;
+	unbeatableTime = 0;
 }
 
-Player::Player(float sx, float sy ,bool isActive)
+Player::Player(float sx, float sy ,bool _isActive)
 {
 	hImage = LoadGraph("data/Image/material/PNG/playerShip2_red.png");
 	x = sx;
 	y = sy;
 	hp = 10;
-	isActive = isActive;
+	isActive = _isActive;
+	unbeatableTime = 0;
 }
 
 Player::~Player()
@@ -39,10 +43,23 @@ void Player::Update()
 	{
 		unbeatableTime--;
 	}
+	bool nowSpaceKey = CheckHitKey(KEY_INPUT_SPACE) != 0;
+	if(nowSpaceKey && !prevSpaceKey)
+	{
+		FireBullet(x + PLAYER_SIDEWAYS_CENTER_SIZE, y);
+	}
+	prevSpaceKey = nowSpaceKey;
 }
 
 void Player::Draw()
 {
+	if(unbeatableTime > 0)
+	{
+		if(((int)unbeatableTime / 4) % 2 == 0)
+		{
+			return;//•`‰æ‚µ‚È‚¢ƒtƒŒ[ƒ€
+		}
+	}
 	DrawGraph((int)x, (int)y, hImage, TRUE);
 }
 
@@ -64,4 +81,16 @@ void Player::TakeDamage()
 {
 	if (unbeatableTime > 0) return;
 	hp--;
+	if(hp <= 0)
+	{
+		SceneManager::ChangeScene("GAMEOVER");
+		isActive = false;
+		return;
+	}
+	unbeatableTime = UNBEATABLE_TIME;
+}
+
+void Player::FireBullet(float sx, float sy)
+{
+	new PlayerBullet(sx, sy, 0.0f, -5.0f, 13.0f); // ã•ûŒü‚É‘¬“x5‚Å”­ŽË
 }

@@ -10,6 +10,11 @@ public:
 	~Enemy();
 	void Update()override;
 	void Draw()override;
+	float GetX() { return x; }
+	float GetY() { return y; }
+	bool IsActive() { return isActive; }	
+	bool IsHit(float bx, float by, float rad);
+	void TakeDamage();
 	void FireBullet(float sx, float sy);
 private:
 	float x, y;
@@ -17,6 +22,8 @@ private:
 	int hbImage;
 	float radius;
 	bool isActive;
+	int hp;
+	float unbeatableTime;
 
 	float shottimer = 0.0f;
 	const float SHOT_INTERVAL = 60.0f;

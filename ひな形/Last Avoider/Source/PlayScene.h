@@ -13,6 +13,6 @@ public:
 	~PlayScene();
 	void Update() override;
 	void Draw() override;
-	Player player;
-	Enemy enemy;
+	Player *player;
+	Enemy *enemy;
 };
