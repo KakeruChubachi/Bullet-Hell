@@ -9,6 +9,8 @@ public:
 	~EnemyBullet();
 	void Update()override;
 	void Draw()override;
+	bool CheckGraze(float px, float py, float grazerad);
+	Player* p;
 	
 private:
 	float x, y;
@@ -17,5 +19,6 @@ private:
 	float velocityY;
 	float size;
 	bool isActive = true;
+	bool isGrazed = false;
 };
 

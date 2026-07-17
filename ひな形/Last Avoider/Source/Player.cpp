@@ -1,11 +1,7 @@
 #include "Player.h"
 #include"PlayerBullet.h"
 #include"GameOverScene.h"
-
-static constexpr float MOVE_SPEED = 5.0f;
-static constexpr float PLAYER_SIDEWAYS_CENTER_SIZE = 112 / 2;
-static constexpr float PLAYER_VERTICAL_CENTER_SIZE = 75 / 2;
-
+#include"Score.h"
 
 Player::Player()
 {
@@ -65,8 +61,8 @@ void Player::Draw()
 
 bool Player::IsHit(float bx,float by,float rad)
 {
-	float dx = bx - (x + PLAYER_SIDEWAYS_CENTER_SIZE);
-	float dy = by - (y + PLAYER_VERTICAL_CENTER_SIZE);
+	float dx = bx - (x + PLAYER_VERTICAL_CENTER_SIZE);
+	float dy = by - (y + PLAYER_SIDEWAYS_CENTER_SIZE);
 	float distance = dx * dx + dy * dy;
 	float radsum = PLAYER_VERTICAL_CENTER_SIZE + rad;
 	if (distance < radsum * radsum)

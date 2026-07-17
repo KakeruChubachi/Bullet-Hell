@@ -1,7 +1,6 @@
 #include "EnemyBullet.h"
 #include"Player.h"
-static constexpr float PLAYER_VERTICAL_CENTER_SIZE = 112 / 2;
-static constexpr float PLAYER_SIDEWAYS_CENTER_SIZE = 75 / 2;
+#include"Score.h"
 
 EnemyBullet::EnemyBullet()
 {
@@ -47,9 +46,35 @@ void EnemyBullet::Update()
 		DestroyMe();
 		return;
 	}
+	else if (!p->IsHit(bulletCenterX, bulletCenterY, BulletRadius))
+	{
+		CheckGraze();
+	}
 }
 
 void EnemyBullet::Draw()
 {
 	DrawGraph((int)x, (int)y, hImage, TRUE);
+}
+
+bool EnemyBullet::CheckGraze(float px, float py, float grazerad)
+{
+	float bulletCenterX, bulletCenterY,bulletRadius;
+	bulletCenterX = x + 13.0 / 2.0;
+	bulletCenterY = y + 57.0 / 2.0;
+	float dx = px -  bulletCenterX;
+	float dy = py - bulletCenterY;
+	float distance = dx * dx + dy * dy;
+	bulletRadius = 13.0 / 2.0;
+	float radsum = grazerad + bulletRadius;
+	if (distance < radsum * radsum)
+	{
+		if (!isGrazed) 
+		{
+			isGrazed = true;
+			Score::Add(10);
+			return true;
+		}
+	}
+	return false;
 }
