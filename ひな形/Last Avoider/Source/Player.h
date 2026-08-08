@@ -13,6 +13,7 @@ public:
 	float GetCenterX() { return GetX() + PLAYER_SIDEWAYS_CENTER_SIZE; }
 	float GetY() { return y; }
 	float GetCenterY() { return GetY() + PLAYER_VERTICAL_CENTER_SIZE ;}
+	float GetGrazeRad() { return PLAYER_GRAZE_RAD_SIZE; }
 	int GetHP() { return hp; }
 	bool IsActive() const { return isActive; }
 	void FireBullet(float sx, float sy);
@@ -21,9 +22,10 @@ public:
 	void TakeDamage();
 private:
 	static constexpr float MOVE_SPEED = 5.0f;
+	static constexpr float LOW_MOVE_SPPED = 5.0f/2.0f;
 	static constexpr float PLAYER_SIDEWAYS_CENTER_SIZE = 112 / 2;
 	static constexpr float PLAYER_VERTICAL_CENTER_SIZE = 75 / 2;
-	static constexpr float PLAYER_GRAZE_RAD_SIZE = (75 / 2) * 1.5f;
+	static constexpr float PLAYER_GRAZE_RAD_SIZE = (75 / 2) * 2.0f;
 
 
 	float x, y;

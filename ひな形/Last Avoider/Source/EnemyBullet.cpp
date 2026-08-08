@@ -1,6 +1,7 @@
 #include "EnemyBullet.h"
 #include"Player.h"
 #include"Score.h"
+#include"Grazed.h"
 
 EnemyBullet::EnemyBullet()
 {
@@ -48,7 +49,7 @@ void EnemyBullet::Update()
 	}
 	else if (!p->IsHit(bulletCenterX, bulletCenterY, BulletRadius))
 	{
-		CheckGraze();
+		CheckGraze(p->GetCenterX(),p->GetCenterY(),p->GetGrazeRad());
 	}
 }
 
@@ -73,6 +74,7 @@ bool EnemyBullet::CheckGraze(float px, float py, float grazerad)
 		{
 			isGrazed = true;
 			Score::Add(10);
+			Grazed::AddGrazed(1);
 			return true;
 		}
 	}

@@ -24,8 +24,10 @@ private:
 	bool isActive;
 	int hp;
 	float unbeatableTime;
+	bool MoveLeft = true;
 
 	float shottimer = 0.0f;
 	const float SHOT_INTERVAL = 60.0f;
+	static constexpr float ENEMY_MOVE_SPEED = 2.0f;
 };
 

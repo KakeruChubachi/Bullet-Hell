@@ -1,5 +1,6 @@
 #pragma once
 #include"../Library/GameObject.h"
+#include"Player.h"
 
 class EnemyBullet : public GameObject
 {

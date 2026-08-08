@@ -2,6 +2,7 @@
 #include"PlayerBullet.h"
 #include"GameOverScene.h"
 #include"Score.h"
+#include"Screen.h"
 
 Player::Player()
 {
@@ -29,11 +30,25 @@ Player::~Player()
 
 void Player::Update()
 {
+	if(CheckHitKey(KEY_INPUT_LSHIFT))
+	{
+		if(CheckHitKey(KEY_INPUT_W)) y -= LOW_MOVE_SPPED;
+		if(CheckHitKey(KEY_INPUT_S)) y += LOW_MOVE_SPPED;
+		if(CheckHitKey(KEY_INPUT_A)) x -= LOW_MOVE_SPPED;
+		if(CheckHitKey(KEY_INPUT_D)) x += LOW_MOVE_SPPED;
+	}
+	else
+	{
 	//à⁄ìÆèàóù
 	if (CheckHitKey(KEY_INPUT_W)) y -= MOVE_SPEED;
 	if (CheckHitKey(KEY_INPUT_S)) y += MOVE_SPEED;
 	if (CheckHitKey(KEY_INPUT_A)) x -= MOVE_SPEED;
 	if (CheckHitKey(KEY_INPUT_D)) x += MOVE_SPEED;
+	}
+	if (x < 0) x = 0;
+	if (x > Screen::WIDTH - 112) x = Screen::WIDTH - 112;
+	if (y < 0) y = 0;
+	if (y > Screen::HEIGHT - 75) y = Screen::HEIGHT - 75;
 	//ñ≥ìGéûä‘
 	if (unbeatableTime > 0)
 	{

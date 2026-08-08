@@ -34,7 +34,23 @@ Enemy::~Enemy()
 
 void Enemy::Update()
 {
-	FireBullet(x, y);
+	FireBullet(x + ENEMY_SIDEWAYS_CENTER_SIZE + 1 , y + ENEMY_VERTICAL_CENTER_SIZE);
+	if (x <= 0)
+	{
+		MoveLeft = false;
+	}
+	else if(x >= Screen::WIDTH - 84)
+	{
+		MoveLeft = true;
+	}
+	if(MoveLeft)
+	{
+		x -= ENEMY_MOVE_SPEED;
+	}
+	else if(!MoveLeft)
+	{
+		x += ENEMY_MOVE_SPEED;
+	}
 }
 
 void Enemy::Draw()

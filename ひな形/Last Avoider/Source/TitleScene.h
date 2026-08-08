@@ -13,4 +13,8 @@ public:
 	~TitleScene();
 	void Update() override;
 	void Draw() override;
+
+private:
+	int hImage;
+	float flasingTimer = 0.0f;
 };

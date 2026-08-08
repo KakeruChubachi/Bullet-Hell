@@ -2,13 +2,19 @@
 #include"Player.h"
 #include"Enemy.h"
 #include"Score.h"
+#include"Grazed.h"
 
 
 PlayScene::PlayScene()
 {
 	Score::Init();
+	Grazed::Init();
 	player = new Player();
-	enemy =  new Enemy();
+	for(int i = 0; i < 5; i++)
+	{
+		Enemy* enemy = new Enemy(100 + i * 200, 100, 50);
+		enemies.push_back(enemy);
+	}
 }
 
 PlayScene::~PlayScene()
@@ -31,6 +37,11 @@ void PlayScene::Draw()
 	char scoreText[64];
 	sprintf_s(scoreText, "SCORE: %d", Score::Get());
 	DrawString(600, 0, scoreText, GetColor(255, 255, 255));
+
+	//グレイズ数を表示
+	char grazedText[64];
+	sprintf_s(grazedText, "GRAZED: %d", Grazed::Get());
+	DrawString(600, 20, grazedText, GetColor(255, 255, 255));
 
 	//HPを表示
 	char hpText[64];

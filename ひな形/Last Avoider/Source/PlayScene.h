@@ -2,6 +2,7 @@
 #include "../Library/SceneBase.h"
 #include"Player.h"
 #include"Enemy.h"
+#include<vector>
 
 /// <summary>
 /// ゲームプレイのシーンを制御する
@@ -14,5 +15,5 @@ public:
 	void Update() override;
 	void Draw() override;
 	Player *player;
-	Enemy *enemy;
+	std::vector<Enemy*>enemies;
 };

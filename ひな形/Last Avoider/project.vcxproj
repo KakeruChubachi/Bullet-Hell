@@ -156,6 +156,7 @@
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\EnemyBullet.h" />
     <ClInclude Include="Source\GameOverScene.h" />
+    <ClInclude Include="Source\Grazed.h" />
     <ClInclude Include="Source\Player.h" />
     <ClInclude Include="Source\PlayerBullet.h" />
     <ClInclude Include="Source\Score.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\EnemyBullet.cpp" />
     <ClCompile Include="Source\GameOverScene.cpp" />
+    <ClCompile Include="Source\Grazed.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\PlayerBullet.cpp" />
     <ClCompile Include="Source\PlayScene.cpp" />
