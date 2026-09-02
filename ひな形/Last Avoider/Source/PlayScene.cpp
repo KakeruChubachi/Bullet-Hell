@@ -10,11 +10,7 @@ PlayScene::PlayScene()
 	Score::Init();
 	Grazed::Init();
 	player = new Player();
-	for(int i = 0; i < 5; i++)
-	{
-		Enemy* enemy = new Enemy(100 + i * 200, 100, 50);
-		enemies.push_back(enemy);
-	}
+	enemyManager = new EnemyManager();
 }
 
 PlayScene::~PlayScene()
@@ -26,6 +22,7 @@ void PlayScene::Update()
 	if (CheckHitKey(KEY_INPUT_T)) {
 		SceneManager::ChangeScene("TITLE");
 	}
+	enemyManager->Update();
 }
 
 void PlayScene::Draw()

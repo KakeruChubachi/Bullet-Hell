@@ -71,6 +71,9 @@
     <ClCompile Include="Source\Grazed.cpp">
       <Filter>PlayScene</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EnemyManager.cpp">
+      <Filter>PlayScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -154,6 +157,9 @@
       <Filter>PlayScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Grazed.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EnemyManager.h">
       <Filter>PlayScene</Filter>
     </ClInclude>
   </ItemGroup>

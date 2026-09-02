@@ -3,6 +3,7 @@
 #include"Player.h"
 #include"Enemy.h"
 #include<vector>
+#include"EnemyManager.h"
 
 /// <summary>
 /// ゲームプレイのシーンを制御する
@@ -15,5 +16,5 @@ public:
 	void Update() override;
 	void Draw() override;
 	Player *player;
-	std::vector<Enemy*>enemies;
+	EnemyManager* enemyManager;
 };
