@@ -3,8 +3,6 @@
 #include "Screen.h"
 #include"Score.h"
 
-static constexpr float ENEMY_VERTICAL_CENTER_SIZE = 104 / 2;
-static constexpr float ENEMY_SIDEWAYS_CENTER_SIZE = 84 / 2;
 
 Enemy::Enemy()
 {
@@ -35,19 +33,24 @@ Enemy::~Enemy()
 void Enemy::Update()
 {
 	FireBullet(x + ENEMY_SIDEWAYS_CENTER_SIZE + 1 , y + ENEMY_VERTICAL_CENTER_SIZE);
+	MoveEnemy();
+}
+
+void Enemy::MoveEnemy()
+{
 	if (x <= 0)
 	{
 		MoveLeft = false;
 	}
-	else if(x >= Screen::WIDTH - 84)
+	else if (x >= Screen::WIDTH - 84)
 	{
 		MoveLeft = true;
 	}
-	if(MoveLeft)
+	if (MoveLeft)
 	{
 		x -= ENEMY_MOVE_SPEED;
 	}
-	else if(!MoveLeft)
+	else if (!MoveLeft)
 	{
 		x += ENEMY_MOVE_SPEED;
 	}

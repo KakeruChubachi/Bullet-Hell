@@ -156,6 +156,8 @@
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\EnemyBullet.h" />
     <ClInclude Include="Source\EnemyManager.h" />
+    <ClInclude Include="Source\EnemySine.h" />
+    <ClInclude Include="Source\EnemyStraight.h" />
     <ClInclude Include="Source\GameOverScene.h" />
     <ClInclude Include="Source\Grazed.h" />
     <ClInclude Include="Source\Player.h" />
@@ -184,6 +186,8 @@
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\EnemyBullet.cpp" />
     <ClCompile Include="Source\EnemyManager.cpp" />
+    <ClCompile Include="Source\EnemySine.cpp" />
+    <ClCompile Include="Source\EnemyStraight.cpp" />
     <ClCompile Include="Source\GameOverScene.cpp" />
     <ClCompile Include="Source\Grazed.cpp" />
     <ClCompile Include="Source\Player.cpp" />

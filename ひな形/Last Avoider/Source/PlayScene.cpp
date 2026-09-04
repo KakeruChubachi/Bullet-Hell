@@ -23,6 +23,13 @@ void PlayScene::Update()
 		SceneManager::ChangeScene("TITLE");
 	}
 	enemyManager->Update();
+	playTimer++;
+
+	if (enemyManager->IsAllCleared() || playTimer >= TIME_LIMIT)
+	{
+		SceneManager::ChangeScene("GAMEOVER"); // ƒV[ƒ“–¼‚ÍÀÛ‚Ì“o˜^–¼‚É‡‚í‚¹‚Ä
+	}
+
 }
 
 void PlayScene::Draw()

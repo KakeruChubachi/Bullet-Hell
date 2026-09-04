@@ -15,6 +15,9 @@ public:
 	~PlayScene();
 	void Update() override;
 	void Draw() override;
-	Player *player;
-	EnemyManager* enemyManager;
+private:
+	Player* player;
+	EnemyManager* enemyManager; // 既にあるはず
+	int playTimer = 0;
+	static constexpr int TIME_LIMIT = 3600; // 例：60秒（60fps想定）
 };
